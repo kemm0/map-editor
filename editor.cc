@@ -6,11 +6,17 @@ Editor::Editor(QWidget *parent)
     , ui(new Ui::Editor)
 {
     ui->setupUi(this);
+
 }
 
 Editor::~Editor()
 {
     delete ui;
     delete mapscene;
+}
+
+bool Editor::init()
+{
+
 }
 
