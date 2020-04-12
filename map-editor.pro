@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cc \
     editor.cc \
+    mapscene.cpp \
     startmenu.cpp \
     tile.cpp
 
 HEADERS += \
     editor.hh \
+    mapscene.h \
     startmenu.h \
     tile.h
 

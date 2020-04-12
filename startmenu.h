@@ -16,7 +16,7 @@ public:
     ~StartMenu();
 
 signals:
-    void dataSubmitted(int mapWidth, int mapHeight, int tileWidth, int tileHeight, std::string texturespath);
+    void dataSubmitted(int mapWidth, int mapHeight, int tileWidth, int tileHeight);
 
 private slots:
     void on_CreateButton_clicked();

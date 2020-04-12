@@ -35,9 +35,22 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListView" name="listView"/>
+      <widget class="QListWidget" name="itemList"/>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="openSpriteFiles">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>0</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Sprites</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

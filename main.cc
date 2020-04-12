@@ -7,8 +7,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    StartMenu sm;
     Editor w;
+    StartMenu sm;
     QObject::connect(&sm,&StartMenu::dataSubmitted,&w,&Editor::init);
     if(sm.exec() == QDialog::Accepted){
         w.show();
