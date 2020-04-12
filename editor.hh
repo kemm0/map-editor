@@ -6,9 +6,9 @@
 #include <unordered_map>
 #include <QKeyEvent>
 #include <QListWidgetItem>
-#include "tile.h"
-#include "startmenu.h"
-#include "mapscene.h"
+#include "tile.hh"
+#include "startmenu.hh"
+#include "mapscene.hh"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Editor; }

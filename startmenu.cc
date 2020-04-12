@@ -1,4 +1,4 @@
-#include "startmenu.h"
+#include "startmenu.hh"
 #include "ui_startmenu.h"
 
 StartMenu::StartMenu(QWidget *parent) :

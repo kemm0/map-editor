@@ -1,5 +1,5 @@
 #include "editor.hh"
-#include "startmenu.h"
+#include "startmenu.hh"
 
 #include <QApplication>
 #include <iostream>

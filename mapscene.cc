@@ -1,4 +1,4 @@
-#include "mapscene.h"
+#include "mapscene.hh"
 #include <iostream>
 #include <QGraphicsItem>
 #include <QGraphicsColorizeEffect>
