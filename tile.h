@@ -3,19 +3,22 @@
 
 #include <QObject>
 #include <QPixmap>
+#include <QGraphicsPixmapItem>
 
-using TileID = std::string;
+using TileType = std::string;
 
 
-class Tile
+class Tile : public QGraphicsPixmapItem
 {
+
 public:
-    explicit Tile(TileID id,QPixmap* Texture, QRect rect);
+    explicit Tile(TileType type,QPixmap& Texture, QPoint pos,int zValue, QGraphicsItem * parent = nullptr);
     explicit Tile();
+    TileType getType();
+    int getZValue();
 private:
-    TileID mId;
-    QPixmap* mTexture;
-    QRect mRect;
+    TileType mType;
+    int mZValue;
 signals:
 
 };

@@ -29,6 +29,17 @@ void MapScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     //std::cout<<item->scenePos().x()<<" "<<item->scenePos().y()<<std::endl;
 }
 
+void MapScene::addTile(Tile* tile)
+{
+    mTiles.push_back(tile);
+    addItem(tile);
+}
+
+std::vector<Tile *> MapScene::getTiles()
+{
+   return mTiles;
+}
+
 void MapScene::highlight(QGraphicsItem* item)
 {
     if(item != nullptr){

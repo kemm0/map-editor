@@ -1,13 +1,19 @@
 #include "tile.h"
 
-Tile::Tile()
+Tile::Tile(TileType type, QPixmap& texture, QPoint pos, int zValue, QGraphicsItem* parent)
+    :QGraphicsPixmapItem(parent)
 {
-
+    mType = type;
+    setPixmap(texture);
+    setPos(pos);
 }
 
-Tile::Tile(TileID id, QPixmap* texture, QRect rect)
+TileType Tile::getType()
 {
-    mId = id;
-    mTexture = texture;
-    mRect = rect;
+    return mType;
+}
+
+int Tile::getZValue()
+{
+    return zValue();
 }

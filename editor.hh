@@ -39,10 +39,12 @@ private slots:
 
     void on_itemList_itemClicked(QListWidgetItem *item);
 
+    void on_saveFileButton_clicked();
+
 private:
     Ui::Editor *ui;
     MapScene* mapscene;
-    std::unordered_map<TileID,Tile*> tileset;
+    std::unordered_map<TileType,Tile*> tileset;
     std::vector<std::vector<Tile*>> tilesInMap;
     int mMapWidth;
     int mMapHeight;

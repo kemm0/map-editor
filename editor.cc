@@ -5,6 +5,8 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QStringList>
+#include <fstream>
+#include <QDebug>
 
 Editor::Editor(QWidget *parent)
     : QMainWindow(parent)
@@ -47,7 +49,7 @@ bool Editor::init(int mapWidth, int mapHeight, int tileWidth, int tileHeight)
     for(int i = 0;i < mMapHeight; i++){
         for(int j = 0; j < mMapWidth;j++){
             QGraphicsRectItem* tile = new QGraphicsRectItem(0,0,mTileWidth,mTileHeight);
-            tile->setZValue(1);
+            tile->setZValue(0);
             //tile->setBrush(QBrush(Qt::blue));
             tile->setPos(j*tileWidth,i*tileHeight);
             tile->setVisible(true);
@@ -62,10 +64,9 @@ void Editor::sceneClickAction(int x, int y)
     std::cout<<x<<" "<<y<<std::endl;
     if(mState == EditState::ADD_ITEM){
         QPixmap texture = selectedListItem->icon().pixmap(QSize(mTileWidth,mTileHeight));
-        QGraphicsPixmapItem* tile = new QGraphicsPixmapItem(texture);
-        tile->setPos(QPoint(x,y));
-        tile->setZValue(2);
-        mapscene->addItem(tile);
+        Tile* tile = new Tile(selectedListItem->text().toStdString(),texture,QPoint(x,y),1);
+        tile->setZValue(1);
+        mapscene->addTile(tile);
     }
 }
 
@@ -90,4 +91,19 @@ void Editor::on_itemList_itemClicked(QListWidgetItem *item)
         selectedListItem = item;
         mState = EditState::ADD_ITEM;
     }
+}
+
+void Editor::on_saveFileButton_clicked()
+{
+    QString saveFileUrl = QFileDialog::getSaveFileUrl(
+                this).toString();
+    saveFileUrl.remove(0,8);
+    //saveFileUrl.replace("/","'\'");
+    qDebug()<<saveFileUrl;
+
+    std::ofstream writeFile(saveFileUrl.toStdString());
+    for(auto tile : mapscene->getTiles()){
+        writeFile<<tile->getType()<<" "<<tile->scenePos().x()/mTileWidth<<" "<<int(tile->scenePos().y())/mTileHeight<<" "<<tile->getZValue()<<std::endl;
+    }
+    writeFile.close();
 }
