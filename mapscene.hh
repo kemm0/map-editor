@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include "tile.h"
+#include "tile.hh"
 
 class MapScene : public QGraphicsScene
 {
