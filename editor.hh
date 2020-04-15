@@ -9,16 +9,19 @@
 #include "tile.hh"
 #include "startmenu.hh"
 #include "mapscene.hh"
+#include "objectlistitem.hh"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Editor; }
 QT_END_NAMESPACE
 
 enum EditState{
-    ADD_ITEM,
+    ADD_TILE,
+    ADD_OBJECT,
     EDIT_ITEM,
-    REMOVE_ITEM,
+    ERASE_ITEM,
 };
+
 
 class Editor : public QMainWindow
 {
@@ -27,19 +30,29 @@ class Editor : public QMainWindow
 public:
     Editor(QWidget *parent = nullptr);
     ~Editor();
-    bool LoadTextures(std::string dirpath);
+    bool LoadListItems(QListWidget* list);
     void keyPressEvent(QKeyEvent * event) override;
+    void showEvent(QShowEvent* event) override;
 
 public slots:
     bool init(int mapWidth, int mapHeight, int tileWidth, int tileHeight);
-    void sceneClickAction(int x, int y);
+    void sceneClickAction(QPointF position);
 
 private slots:
-    void on_openSpriteFiles_clicked();
-
-    void on_itemList_itemClicked(QListWidgetItem *item);
 
     void on_saveFileButton_clicked();
+
+    void on_openObjectFiles_clicked();
+
+    void on_openTileFiles_clicked();
+
+    void on_tileList_itemClicked(QListWidgetItem *item);
+
+    void on_objectList_itemClicked(QListWidgetItem *item);
+
+    void on_EraserToolButton_clicked();
+
+    void on_PenToolButton_clicked();
 
 private:
     Ui::Editor *ui;
@@ -50,7 +63,7 @@ private:
     int mMapHeight;
     int mTileWidth;
     int mTileHeight;
-    QListWidgetItem* selectedListItem;
+    ObjectListItem* selectedListItem;
     EditState mState;
 };
 #endif // EDITOR_HH

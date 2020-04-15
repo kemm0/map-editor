@@ -18,7 +18,7 @@ public:
     void addTile(Tile* tile);
     std::vector<Tile*> getTiles();
 signals:
-    void mouseClicked(int x, int y);
+    void mouseClicked(QPointF pos);
 
 private:
     std::vector<Tile*> mTiles;

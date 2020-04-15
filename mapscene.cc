@@ -23,9 +23,12 @@ void MapScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             item->setGraphicsEffect(nullptr);
         }
     }
-    QGraphicsItem* item = itemAt(event->scenePos(),QTransform());
-    highlight(item);
-    emit mouseClicked(int(item->scenePos().x()),int(item->scenePos().y()));
+    emit mouseClicked(event->scenePos());
+    /*QGraphicsItem* item = itemAt(event->scenePos(),QTransform());
+    if(item != nullptr){
+        highlight(item);
+        emit mouseClicked(int(item->scenePos().x()),int(item->scenePos().y()));
+    }*/
     //std::cout<<item->scenePos().x()<<" "<<item->scenePos().y()<<std::endl;
 }
 

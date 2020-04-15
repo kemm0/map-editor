@@ -12,7 +12,7 @@ class Tile : public QGraphicsPixmapItem
 {
 
 public:
-    explicit Tile(TileType type,QPixmap& Texture, QPoint pos,int zValue, QGraphicsItem * parent = nullptr);
+    explicit Tile(TileType type,QPixmap Texture, QPoint pos,int zValue, QGraphicsItem * parent = nullptr);
     explicit Tile();
     TileType getType();
     int getZValue();

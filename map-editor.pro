@@ -19,12 +19,14 @@ SOURCES += \
     main.cc \
     editor.cc \
     mapscene.cc \
+    objectlistitem.cc \
     startmenu.cc \
     tile.cc
 
 HEADERS += \
     editor.hh \
     mapscene.hh \
+    objectlistitem.hh \
     startmenu.hh \
     tile.hh
 

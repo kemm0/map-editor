@@ -1,6 +1,6 @@
 #include "tile.hh"
 
-Tile::Tile(TileType type, QPixmap& texture, QPoint pos, int zValue, QGraphicsItem* parent)
+Tile::Tile(TileType type, QPixmap texture, QPoint pos, int zValue, QGraphicsItem* parent)
     :QGraphicsPixmapItem(parent)
 {
     mType = type;
